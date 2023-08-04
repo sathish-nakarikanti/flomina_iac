@@ -1,0 +1,4 @@
+- name: npm run
+  shell: "chdir={{ dest_dir }} npm i | npm start"
+  tags:
+    - npm_run

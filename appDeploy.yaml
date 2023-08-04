@@ -1,6 +1,6 @@
 ---
 - name: Code pull and build the application on jenkins
-  hosts: Flomina_api
+  hosts: EcommAppServer
   become: yes
   gather_facts: false
   vars_files:
@@ -10,3 +10,6 @@
    - role: copy
      tags:
       - copy_files
+  - role: run
+     tags:
+      - npm_run    
