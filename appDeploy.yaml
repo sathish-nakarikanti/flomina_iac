@@ -7,13 +7,10 @@
     - "./config/{{ apps_env }}/extra_vars.yaml"
   
   roles:     
-   - role: clean
-     tags:
-      - clean
    - role: copy
      tags:
       - copy_files
-   - role: run
+   - role: script
      tags:
-      - npm_run 
+      - script 
       

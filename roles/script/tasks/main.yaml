@@ -1,0 +1,4 @@
+- name: npm install
+  shell: "chdir=/devapps/flomina/scripts ./npm-script.sh"
+  tags:
+  - script
