@@ -1,0 +1,4 @@
+[JenkinsServers]
+3.110.241.251 ansible_user=ec2-user
+[Flomina_api]
+13.235.27.151 ansible_user=ec2-user

@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    environment
+	{
+		apps_infra_env = "flomina_dev"        
+	}
+    stages {                
+        stage("SCM Checkout") {
+            steps {
+                git branch: 'dev',                    
+                    credentialsId: "FLOMINA_GIT_KEY",
+                    url: 'https://github.com/chandureddyvelmajala/Flomina.git'
+                dir("flomina_iac") {
+                    git branch: "master",                    
+                    url: 'https://github.com/DR-Rajasekhar/ecomm_iac.git'
+                }
+            }  
+        }
+        stage('Deploy') {
+            steps {                
+                ansiblePlaybook become: true, 
+                credentialsId: 'APP_AWS_EC2',
+                disableHostKeyChecking: true,
+                extras: "-e apps_env=${env.apps_infra_env}",  
+                installation: 'ansible', 
+                inventory: 'ecomm_iac/inventories/dev.inv', 
+                limit: 'EcommAppServer', 
+                playbook: 'ecomm_iac/appDeploy.yaml',
+                tags: 'copy_files' 
+            }
+        }        
+    }
+}

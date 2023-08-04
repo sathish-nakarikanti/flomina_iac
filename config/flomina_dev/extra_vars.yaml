@@ -1,0 +1,2 @@
+src_dir: "/var/lib/jenkins/workspace/DEV-FLOMINA/"
+dest_dir: "/devapps/flomina"

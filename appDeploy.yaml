@@ -1,0 +1,12 @@
+---
+- name: Code pull and build the application on jenkins
+  hosts: EcommAppServer
+  become: yes
+  gather_facts: false
+  vars_files:
+    - "./config/{{ apps_env }}/extra_vars.yaml"
+  
+  roles:     
+   - role: copy
+     tags:
+      - copy_files
