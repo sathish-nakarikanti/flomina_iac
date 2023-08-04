@@ -9,23 +9,24 @@ pipeline {
             steps {
                 git branch: 'dev',                    
                     credentialsId: "FLOMINA_GIT_KEY",
-                    url: 'https://github.com/chandureddyvelmajala/Flomina.git'
+                    url: 'https://github.com/sathish-nakarikanti/Flomina.git'
                 dir("flomina_iac") {
-                    git branch: "master",                    
-                    url: 'https://github.com/DR-Rajasekhar/ecomm_iac.git'
+                    git branch: "master",                
+                    credentialsId: "FLOMINA_GIT_KEY",    
+                    url: 'https://github.com/sathish-nakarikanti/flomina_iac.git'
                 }
             }  
         }
         stage('Deploy') {
             steps {                
                 ansiblePlaybook become: true, 
-                credentialsId: 'APP_AWS_EC2',
+                credentialsId: 'FLOMINA_APIS_EC2',
                 disableHostKeyChecking: true,
                 extras: "-e apps_env=${env.apps_infra_env}",  
                 installation: 'ansible', 
-                inventory: 'ecomm_iac/inventories/dev.inv', 
-                limit: 'EcommAppServer', 
-                playbook: 'ecomm_iac/appDeploy.yaml',
+                inventory: 'flomina_iac/inventories/dev.inv', 
+                limit: 'Flomina_api', 
+                playbook: 'flomina_iac/appDeploy.yaml',
                 tags: 'copy_files' 
             }
         }        
