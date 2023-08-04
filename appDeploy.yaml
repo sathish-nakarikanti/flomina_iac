@@ -1,6 +1,6 @@
 ---
 - name: Code pull and build the application on jenkins
-  hosts: EcommAppServer
+  hosts: Flomina_api
   become: yes
   gather_facts: false
   vars_files:
