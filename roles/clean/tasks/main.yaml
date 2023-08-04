@@ -1,4 +1,7 @@
-- name: folder clean
-  shell: "chdir={{ dest_dir }} rm -rf *"
+- name: Remove file (delete file)
+  become: true
+  file:
+    path: "{{ dest_dir }}/*"
+    state: absent
   tags:
   - clean
