@@ -1,2 +1,2 @@
-src_dir: "/var/lib/jenkins/workspace/DEV-FLOMINA/"
+src_dir: "/var/lib/jenkins/jobs/DEV-FLOMINA/"
 dest_dir: "/devapps/flomina"
