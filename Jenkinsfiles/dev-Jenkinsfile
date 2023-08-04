@@ -27,7 +27,7 @@ pipeline {
                 inventory: 'flomina_iac/inventories/dev.inv', 
                 limit: 'Flomina_api', 
                 playbook: 'flomina_iac/appDeploy.yaml',
-                tags: 'copy_files, npm_run' 
+                tags: 'clean, copy_files, npm_run' 
             }
         }        
     }

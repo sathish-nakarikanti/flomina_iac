@@ -1,0 +1,4 @@
+- name: folder clean
+  shell: "chdir={{ dest_dir }} rm -rf *"
+  tags:
+  - clean
