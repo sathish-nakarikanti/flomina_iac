@@ -9,7 +9,7 @@ pipeline {
             steps {
                 git branch: 'dev',                    
                     credentialsId: "FLOMINA_GIT_KEY",
-                    url: 'https://github.com/sathish-nakarikanti/Flomina.git'
+                    url: 'https://github.com/chandureddyvelmajala/Flomina.git'
                 dir("flomina_iac") {
                     git branch: "master",                
                     credentialsId: "FLOMINA_GIT_KEY",    
